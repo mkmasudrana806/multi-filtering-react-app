@@ -33,7 +33,7 @@ const AllMonitor = () => {
 
   // load filter options from database for checkbox dynamically
   useEffect(() => {
-    fetch("https://star-tech-server.vercel.app/monitor")
+    fetch("https://multi-filtering-nodejs-server.vercel.app/monitor")
       .then((res) => res.json())
       .then((data) => {
         setBrands([...new Set(data.map((product) => product.brand))]);
@@ -67,13 +67,13 @@ const AllMonitor = () => {
     });
 
     // fetch data for multi feltering
-    fetch(`https://star-tech-server.vercel.app/products?${query}`)
+    fetch(`https://multi-filtering-nodejs-server.vercel.app/products?${query}`)
       .then((res) => res.json())
       .then((data) => {
         setFilteredMonitors(data.filteredProducts);
         setFilterData(data.filterData);
       })
-      .catch((error) => console.error(error.message));
+      .catch((error) => console.error("Faild to fetch data"));
   }, [
     selectedBrand,
     selectedResolution,
@@ -87,11 +87,6 @@ const AllMonitor = () => {
     currentPage,
   ]);
 
-  useEffect(() => {
-    fetch("https://star-tech-server.vercel.app/")
-      .then((res) => res.json())
-      .then((data) => console.log("fetching data is: ", data));
-  }, []);
   // here we handle the slider and slider state
   // here get the monitors lowest and highest price and pass to the min and max of the range slider
   const maxPrice = Math.max(...monitors.map((monitor) => monitor.price));
