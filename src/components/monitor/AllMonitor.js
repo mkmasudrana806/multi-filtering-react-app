@@ -66,6 +66,7 @@ const AllMonitor = () => {
       currentPage: currentPage,
     });
 
+    // fetch data for multi feltering
     fetch(`https://star-tech-server.vercel.app/products?${query}`)
       .then((res) => res.json())
       .then((data) => {
