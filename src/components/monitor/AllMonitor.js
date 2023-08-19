@@ -33,7 +33,7 @@ const AllMonitor = () => {
 
   // load filter options from database for checkbox dynamically
   useEffect(() => {
-    fetch("https://multi-filtering-nodejs-server.vercel.app/monitor")
+    fetch("https://star-tech-server-mkmasudrana806.vercel.app/monitor")
       .then((res) => res.json())
       .then((data) => {
         setBrands([...new Set(data.map((product) => product.brand))]);
@@ -67,7 +67,7 @@ const AllMonitor = () => {
     });
 
     // fetch data for multi feltering
-    fetch(`https://multi-filtering-nodejs-server.vercel.app/products?${query}`)
+    fetch(`https://star-tech-server-mkmasudrana806.vercel.app/products?${query}`)
       .then((res) => res.json())
       .then((data) => {
         setFilteredMonitors(data.filteredProducts);
